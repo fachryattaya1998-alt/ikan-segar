@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARILE -  Premium & Siap Masak</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f5fc',
+                            100: '#dbe8f8',
+                            200: '#bcd4f3',
+                            300: '#8db7eb',
+                            400: '#5592e0',
+                            500: '#3272d4',
+                            600: '#1e55be',
+                            700: '#1a439e',
+                            800: '#1b3780',
+                            900: '#1a3067',
+                            950: '#121e3f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-navy-50 text-navy-950 font-sans antialiased selection:bg-navy-600 selection:text-white">
+
+    <!-- TOP BAR DENGAN LINK SOSIAL MEDIA -->
+    <div class="bg-navy-950 text-navy-200 text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-store text-navy-400 mr-1.5"></i> Distributor Resmi Ikan Premium</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-snowflake text-navy-400 mr-1.5"></i> Pengiriman Cold-Chain Frozen Fresh</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- Social Media Links -->
+                <div class="flex items-center gap-3 text-sm">
+                    <a href="https://www.instagram.com/lele_prime249?cplk=OHl4cDZvNGttZDV0" target="_blank" class="hover:text-pink-400 transition" title="Instagram MARILE"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@lele_prime20?_r=1&_t=ZS-9APou1dQ1VF" target="_blank" class="hover:text-cyan-400 transition" title="TikTok MARILE"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61595333640257" target="_blank" class="hover:text-blue-400 transition" title="Facebook MARILE"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <span class="hidden sm:inline">|</span>
+                <span><i class="fa-solid fa-phone text-navy-400 mr-1.5"></i> 0896-9449-9204</span>
+                <span class="hidden sm:inline">|</span>
+                <span class="text-emerald-400 font-medium"><i class="fa-solid fa-circle text-[8px] mr-1 animate-pulse"></i> Buka Setiap Hari</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLASH SALE COUNTDOWN BANNER -->
+    <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-slate-950 py-2.5 px-4 shadow-inner">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-xs sm:text-sm font-bold">
+            <div class="flex items-center gap-2">
+                <span class="bg-slate-950 text-amber-400 text-[10px] uppercase px-2 py-0.5 rounded font-black tracking-wider animate-bounce">Flash Sale</span>
+                <span>Promo Spesial Potongan Harga & Free Ongkir Terbatas!</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="font-medium text-slate-900 text-xs">Berakhir Dalam:</span>
+                <div class="flex items-center gap-1 font-mono text-xs">
+                    <span id="cd-hours" class="bg-slate-950 text-white px-2 py-1 rounded">04</span> :
+                    <span id="cd-minutes" class="bg-slate-950 text-white px-2 py-1 rounded">25</span> :
+                    <span id="cd-seconds" class="bg-slate-950 text-white px-2 py-1 rounded">40</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR HEADER -->
+    <header class="sticky top-0 z-40 bg-navy-900/95 backdrop-blur-md border-b border-navy-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- LOGO GAMBAR MARILE -->
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-amber-400 shadow-md group-hover:scale-105 transition-transform bg-white flex items-center justify-center shrink-0">
+                    <img src="logo.jpg" alt="MARILE Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight text-white">MARI<span class="text-navy-400">LE</span></span>
+                    <span class="block text-[10px] uppercase tracking-widest text-navy-300 font-medium">Ikan Premium</span>
+                </div>
+            </a>
+
+            <!-- MENU UTAMA -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs sm:text-sm font-semibold text-navy-200">
+                <a href="#beranda" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-house text-navy-400"></i> Beranda</a>
+                <a href="#keunggulan" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-star text-navy-400"></i> Keunggulan</a>
+                <a href="#produk" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-box text-navy-400"></i> Produk</a>
+                <a href="#ulasan-kritik" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-comments text-navy-400"></i> Ulasan</a>
+                <a href="#pesanan" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-cart-shopping text-navy-400"></i> Pesanan</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCartDrawer()" class="relative bg-navy-800 hover:bg-navy-700 text-white p-2.5 rounded-xl border border-navy-700 transition flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-cart-shopping text-navy-300"></i>
+                    <span class="hidden sm:inline text-xs font-semibold">Keranjang</span>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md scale-0 transition-transform">0</span>
+                </button>
+                <a href="#pesanan" class="hidden sm:inline-flex bg-navy-500 hover:bg-navy-600 text-white font-semibold px-5 py-2.5 rounded-xl text-sm shadow-md transition">
+                    Pesan Sekarang
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. BERANDA -->
+    <section id="beranda" class="relative bg-cover bg-center bg-no-repeat text-white py-20 lg:py-32 overflow-hidden" style="background-image: url('bg-hero.jpg');">
+        
+        <!-- Lapisan Transparan Gelap (Overlay) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-navy-950/80 to-navy-900/95 backdrop-blur-[2px]"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+            <div class="inline-flex items-center gap-2 bg-navy-900/80 border border-navy-700/60 px-4 py-2 rounded-full text-xs font-medium text-navy-200 backdrop-blur-md">
+                <i class="fa-solid fa-award text-amber-400"></i> MARILE
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                Ikan Premium <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-navy-200 via-navy-300 to-blue-300">Praktis, Gurih & Lezat</span>
+            </h1>
+            <p class="text-base sm:text-xl text-navy-100 max-w-2xl mx-auto font-light leading-relaxed">
+                Diolah dari ikan segar pilihan bebas bau tanah, dibumbui rempah rahasia meresap sempurna hingga ke daging. Higienis, dikemas kedap udara, siap langsung goreng kapan saja!
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#produk" class="w-full sm:w-auto bg-navy-500 hover:bg-navy-600 text-white font-bold px-8 py-4 rounded-xl text-center shadow-lg transition flex items-center justify-center gap-2.5">
+                    <i class="fa-solid fa-bag-shopping"></i> Lihat Katalog & Harga
+                </a>
+                <a href="https://wa.me/6289694499204?text=Halo%20MARILE,%20saya%20tertarik%20ingin%20memesan%20lele%20marinasi." target="_blank" class="w-full sm:w-auto bg-navy-800/90 hover:bg-navy-700 text-white font-semibold px-7 py-4 rounded-xl border border-navy-600 text-center backdrop-blur-sm transition flex items-center justify-center gap-2.5">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i> Chat WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. KEUNGGULAN (GARANSI & KETAHANAN) -->
+    <section id="keunggulan" class="py-16 bg-navy-100 border-b border-navy-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <!-- Garansi -->
+            <div class="bg-white border border-navy-200 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-5">
+                    <div class="w-16 h-16 bg-emerald-500/10 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl font-black shrink-0">
+                        <i class="fa-solid fa-shield-cat"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md">Keunggulan #1 - Bebas Risiko</span>
+                        <h3 class="text-xl font-extrabold text-navy-950 mt-1">Garansi Kesegaran 100% & Bebas Bau Tanah</h3>
+                        <p class="text-xs sm:text-sm text-navy-600 mt-1">Jika lele yang Anda terima terbukti busuk atau bau tanah saat dimasak, kami ganti 100% gratis tanpa biaya tambahan!</p>
+                    </div>
+                </div>
+                <a href="#produk" class="shrink-0 bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold px-6 py-3.5 rounded-xl transition">
+                    Pesan Bebas Khawatir
+                </a>
+            </div>
+
+            <!-- Ketahanan Cold-Chain -->
+            <div class="bg-navy-900 text-white border border-navy-800 rounded-3xl p-8 sm:p-10 shadow-lg">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-navy-300 font-semibold text-xs uppercase tracking-widest bg-navy-800 px-3 py-1 rounded-full border border-navy-700">Keunggulan #2 - Standar Mutu</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold mt-3">Panduan Ketahanan Simpan Cold-Chain</h3>
+                    <p class="text-navy-300 text-xs sm:text-sm mt-2">Dikemas teknologi Vacuum Sealed steril kedap udara agar kualitas daging tetap segar.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-navy-950 border border-navy-800 rounded-2xl p-6 text-center">
+                        <div class="w-14 h-14 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3">
+                            <i class="fa-solid fa-temperature-arrow-down"></i>
+                        </div>
+                        <span class="text-[11px] font-bold text-blue-400 bg-blue-900/40 px-2.5 py-0.5 rounded-full">Suhu Ruang (25°C)</span>
+                        <h4 class="text-xl font-extrabold mt-2 text-white">Tahan 24 Jam</h4>
+                        <p class="text-xs text-navy-300 mt-1">Aman untuk perjalanan pengiriman kilat Gojek & Grab.</p>
+                    </div>
+                    <div class="bg-navy-950 border border-navy-800 rounded-2xl p-6 text-center">
+                        <div class="w-14 h-14 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3">
+                            <i class="fa-solid fa-box-tissue"></i>
+                        </div>
+                        <span class="text-[11px] font-bold text-cyan-400 bg-cyan-900/40 px-2.5 py-0.5 rounded-full">Kulkas (0-4°C)</span>
+                        <h4 class="text-xl font-extrabold mt-2 text-white">Tahan 7 Hari</h4>
+                        <p class="text-xs text-navy-300 mt-1">Simpan di chiller kulkas jika ingin dimasak bertahap.</p>
+                    </div>
+                    <div class="bg-navy-950 border border-navy-800 rounded-2xl p-6 text-center">
+                        <div class="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3">
+                            <i class="fa-solid fa-snowflake"></i>
+                        </div>
+                        <span class="text-[11px] font-bold text-indigo-400 bg-indigo-900/40 px-2.5 py-0.5 rounded-full">Freezer (-18°C)</span>
+                        <h4 class="text-xl font-extrabold mt-2 text-white">Tahan 3 Bulan</h4>
+                        <p class="text-xs text-navy-300 mt-1">Penyimpanan beku tanpa mengubah cita rasa rempah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRODUK KATALOG UTAMA (DENGAN FOTO LOKAL PRODUK) -->
+    <section id="produk" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-navy-600 font-semibold text-xs uppercase tracking-widest bg-navy-100 px-3 py-1 rounded-full">Katalog Varian</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3 tracking-tight">Pilih Paket MARILE Terbaik</h2>
+                <p class="text-navy-600 text-sm mt-2">Daftar harga produk segar dan marinasi berkualitas tinggi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Produk 1 -->
+                <div class="bg-white rounded-2xl border border-navy-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+                    <div>
+                        <img src="produk1.jpg" alt="MARILE Segar" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-navy-950">Lele Segar</h3>
+                                <span class="text-navy-700 font-extrabold text-lg">Rp 35.000 / Kg</span>
+                            </div>
+                            <p class="text-xs text-navy-600">Lele hidup segar pilihan diproses bersih higienis. Daging tebal, gurih, dan bebas dari bau tanah.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('MARILE Segar (1 Kg)', 35000, 'produk1.jpg')" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-semibold py-3 rounded-xl text-sm transition cursor-pointer">
+                            <i class="fa-solid fa-cart-plus mr-2"></i> Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 2 -->
+                <div class="bg-white rounded-2xl border border-navy-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+                    <div>
+                        <img src="produk2.jpg" alt="MARILE Marinasi Bumbu Kuning" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-navy-950">Marinasi Bumbu Kuning</h3>
+                                <span class="text-navy-700 font-extrabold text-lg">Rp 30.000 / 500g</span>
+                            </div>
+                            <p class="text-xs text-navy-600">Kemasan 500gr siap goreng. Marinasi bumbu kuning rempah alami meresap sempurna hingga ke tulang.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('MARILE Marinasi Bumbu Kuning (500g)', 30000, 'produk2.jpg')" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-semibold py-3 rounded-xl text-sm transition cursor-pointer">
+                            <i class="fa-solid fa-cart-plus mr-2"></i> Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Produk 3 -->
+                <div class="bg-white rounded-2xl border border-navy-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+                    <div>
+                        <img src="produk3.jpg" alt="MARILE Marinasi + Sambal" class="w-full h-56 object-cover">
+                        <div class="p-6 space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg text-navy-950">Marinasi + Sambal</h3>
+                                <span class="text-navy-700 font-extrabold text-lg">Rp 35.000 / 500g</span>
+                            </div>
+                            <p class="text-xs text-navy-600">Paket lengkap lele marinasi 500gr termasuk sambal khas lezat. Praktis dan makin mantap disajikan!</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart('MARILE Marinasi + Sambal (500g)', 35000, 'produk3.jpg')" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-semibold py-3 rounded-xl text-sm transition cursor-pointer">
+                            <i class="fa-solid fa-cart-plus mr-2"></i> Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ULASAN & MASUKAN PEMBELI -->
+    <section id="ulasan-kritik" class="py-20 bg-navy-950 text-white border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-navy-300 font-semibold text-xs uppercase tracking-widest bg-navy-800 px-3 py-1 rounded-full border border-navy-700">Masukan & Evaluasi</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Ulasan Pelanggan</h2>
+                <p class="text-navy-300 text-xs sm:text-sm mt-2">Bantu kami terus berkembang! Tuliskan ulasan jujur atau kritik Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <!-- Form Input Kritik & Ulasan + Upload Foto -->
+                <div class="lg:col-span-5 bg-navy-900 border border-navy-800 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-4">
+                    <h3 class="text-lg font-bold text-white border-b border-navy-800 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-amber-400"></i> Kirim Ulasan & Foto
+                    </h3>
+                    <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-navy-300 mb-1.5">Nama Anda</label>
+                            <input type="text" id="rev-name" required placeholder="Contoh: Rian Pratama" class="w-full bg-navy-950 border border-navy-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-navy-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-navy-300 mb-1.5">Kota / Lokasi</label>
+                            <input type="text" id="rev-location" placeholder="Contoh: Depok" class="w-full bg-navy-950 border border-navy-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-navy-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-navy-300 mb-1.5">Penilaian / Rating</label>
+                            <select id="rev-rating" class="w-full bg-navy-950 border border-navy-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-amber-400 font-bold focus:outline-none focus:border-navy-400">
+                                <option value="5">⭐⭐⭐⭐⭐ (5 - Sangat Puas)</option>
+                                <option value="4">⭐⭐⭐⭐ (4 - Bagus)</option>
+                                <option value="3">⭐⭐⭐ (3 - Cukup / Ada Kekurangan)</option>
+                                <option value="2">⭐⭐ (2 - Kurang Puas)</option>
+                                <option value="1">⭐ (1 - Perlu Perbaikan Total)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-navy-300 mb-1.5">Kritik, Kekurangan, atau Saran Produk</label>
+                            <textarea id="rev-comment" required rows="3" placeholder="Tuliskan masukan atau kritik jujur Anda..." class="w-full bg-navy-950 border border-navy-700 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-navy-400"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-navy-300 mb-1.5"><i class="fa-solid fa-camera text-navy-400 mr-1"></i> Upload Foto Lele / Masakan (Opsional)</label>
+                            <input type="file" id="rev-image" accept="image/*" onchange="previewReviewImage(event)" class="block w-full text-xs text-navy-300 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-navy-800 file:text-white hover:file:bg-navy-700 cursor-pointer">
+                            <div id="img-preview-container" class="mt-2 hidden">
+                                <img id="img-preview" src="#" alt="Preview Foto" class="w-24 h-24 object-cover rounded-xl border border-navy-700">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-navy-600 hover:bg-navy-500 text-white font-bold py-3 rounded-xl text-xs sm:text-sm transition shadow-lg cursor-pointer flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Ulasan & Foto
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Daftar Ulasan Masuk -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex justify-between items-center bg-navy-900 border border-navy-800 p-4 rounded-2xl">
+                        <span class="text-xs font-bold uppercase tracking-wider text-navy-300"><i class="fa-solid fa-comments text-navy-400 mr-1.5"></i> Daftar Ulasan Masuk</span>
+                        <span id="review-count-badge" class="bg-navy-800 text-navy-200 text-xs font-bold px-3 py-1 rounded-full border border-navy-700">2 Ulasan</span>
+                    </div>
+
+                    <div id="review-list" class="space-y-4 max-h-[600px] overflow-y-auto pr-1">
+                        <!-- Ulasan dirender via LocalStorage -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PESANAN (PEMESANAN & CHECKOUT) -->
+    <section id="pesanan" class="py-20 bg-white border-t border-navy-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <div>
+                <span class="text-navy-600 font-semibold text-xs uppercase tracking-widest bg-navy-100 px-3 py-1 rounded-full">Cara Pemesanan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 mt-3">Siap Menikmati Lele Marinasi Premium?</h2>
+                <p class="text-navy-600 text-sm mt-2">Pilih varian favorit Anda dari katalog produk di atas atau langsung konsultasikan pemesanan melalui layanan WhatsApp kami.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="bg-navy-50 p-6 rounded-2xl border border-navy-200 space-y-2">
+                    <div class="w-8 h-8 bg-navy-900 text-white rounded-lg flex items-center justify-center font-bold text-sm">1</div>
+                    <h4 class="font-bold text-sm text-navy-950">Pilih Produk</h4>
+                    <p class="text-xs text-navy-600 leading-relaxed">Klik "Tambah ke Keranjang" pada varian lele marinasi favorit Anda.</p>
+                </div>
+                <div class="bg-navy-50 p-6 rounded-2xl border border-navy-200 space-y-2">
+                    <div class="w-8 h-8 bg-navy-900 text-white rounded-lg flex items-center justify-center font-bold text-sm">2</div>
+                    <h4 class="font-bold text-sm text-navy-950">Cek Keranjang</h4>
+                    <p class="text-xs text-navy-600 leading-relaxed">Buka keranjang belanja di pojok kanan atas untuk memeriksa rincian pesanan.</p>
+                </div>
+                <div class="bg-navy-50 p-6 rounded-2xl border border-navy-200 space-y-2">
+                    <div class="w-8 h-8 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold text-sm">3</div>
+                    <h4 class="font-bold text-sm text-navy-950">Checkout WhatsApp</h4>
+                    <p class="text-xs text-navy-600 leading-relaxed">Isi detail alamat & pengiriman, lalu kirimkan langsung ke admin via WhatsApp.</p>
+                </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="toggleCartDrawer()" class="w-full sm:w-auto bg-navy-900 hover:bg-navy-800 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-shopping"></i> Buka Keranjang Belanja
+                </button>
+                <a href="https://wa.me/6289694499204?text=Halo%20MARILE,%20saya%20ingin%20memesan%20lele%20marinasi." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Chat Admin WhatsApp (0896-9449-9204)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER LENGKAP DENGAN LOGO GAMBAR MARILE -->
+    <footer id="kontak" class="bg-navy-950 text-white border-t border-navy-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-amber-400 bg-white flex items-center justify-center shrink-0">
+                    <img src="logo.jpg" alt="MARILE Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-white">MARI<span class="text-navy-400">LE</span></span>
+            </div>
+
+            <!-- Tautan Media Sosial Footer -->
+            <div class="flex justify-center items-center gap-6 text-lg">
+                <a href="https://www.instagram.com/lele_prime249?cplk=OHl4cDZvNGttZDV0" target="_blank" class="w-10 h-10 rounded-full bg-navy-900 border border-navy-800 hover:border-pink-500 hover:text-pink-400 flex items-center justify-center transition" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@lele_prime20?_r=1&_t=ZS-9APou1dQ1VF" target="_blank" class="w-10 h-10 rounded-full bg-navy-900 border border-navy-800 hover:border-cyan-500 hover:text-cyan-400 flex items-center justify-center transition" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61595151815304" target="_blank" class="w-10 h-10 rounded-full bg-navy-900 border border-navy-800 hover:border-blue-500 hover:text-blue-400 flex items-center justify-center transition" title="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+
+            <div class="text-xs sm:text-sm text-navy-400 space-y-2">
+                <p><i class="fa-brands fa-whatsapp text-emerald-400 mr-1"></i> WhatsApp: 0896-9449-9204 | Buka Setiap Hari</p>
+                <p>&copy; 2026 MARILE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/6289694499204?text=Halo%20MARILE,%20saya%20ingin%20tanya%20produk." target="_blank" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl transition duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- CART SLIDE-OVER DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-navy-950/70 backdrop-blur-sm" onclick="toggleCartDrawer()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="bg-navy-950 text-white px-6 py-5 flex items-center justify-between">
+                    <h3 class="font-bold text-base">Keranjang Belanja</h3>
+                    <button onclick="toggleCartDrawer()" class="cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <div class="text-center text-navy-400 py-12">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-navy-300"></i>
+                        <p class="text-sm font-medium">Keranjang belanja Anda masih kosong</p>
+                    </div>
+                </div>
+                <div class="bg-navy-50 border-t border-navy-200 p-6 space-y-4">
+                    <div class="flex justify-between text-base font-extrabold text-navy-950">
+                        <span>Total Estimasi</span>
+                        <span id="cart-total" class="text-navy-700">Rp 0</span>
+                    </div>
+                    <button onclick="openOrderModal()" id="checkout-btn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2 opacity-50 cursor-not-allowed" disabled>
+                        Lanjut ke Detail Pesanan <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POP-UP "DETAIL PESANAN (LANGKAH TERAKHIR)" -->
+    <div id="orderModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeOrderModal()"></div>
+
+            <div class="inline-block w-full max-w-md my-8 p-6 sm:p-8 text-left bg-white rounded-3xl shadow-2xl transform transition-all relative z-10">
+                <button onclick="closeOrderModal()" class="absolute top-6 right-6 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-500 transition cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+
+                <div class="mb-6">
+                    <span class="text-[11px] font-bold text-blue-600 uppercase tracking-widest block mb-1">LANGKAH TERAKHIR</span>
+                    <h3 class="text-2xl font-black text-slate-900 tracking-tight">Detail pesanan</h3>
+                </div>
+
+                <form onsubmit="submitFinalOrder(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Nama lengkap</label>
+                        <input type="text" id="order-fullname" required placeholder="Nama kamu" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Alamat pengiriman</label>
+                        <textarea id="order-address" required rows="3" placeholder="Alamat lengkap untuk pengiriman" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition resize-none"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Metode pembayaran</label>
+                        <select id="order-payment" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition cursor-pointer">
+                            <option value="COD (Bayar di Tempat)">COD</option>
+                            <option value="Transfer Bank (BCA / Mandiri / BRI)">Transfer Bank (BCA / Mandiri / BRI)</option>
+                            <option value="E-Wallet / QRIS (Gopay / OVO / Dana)">E-Wallet / QRIS (Gopay / OVO / Dana)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Catatan <span class="text-slate-400 font-normal">opsional</span></label>
+                        <textarea id="order-notes" rows="2" placeholder="Contoh: jangan terlalu pedas / tolong titip di pos satpam" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition resize-none"></textarea>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-4 border-t border-slate-100">
+                        <span class="text-sm font-medium text-slate-500">Total pesanan</span>
+                        <span id="modal-total-price" class="text-2xl font-black text-slate-900">Rp0</span>
+                    </div>
+
+                    <button type="submit" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-bold py-4 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2 cursor-pointer mt-2">
+                        Kirim pesanan via WhatsApp <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC DENGAN LOCALSTORAGE -->
+    <script>
+        let cart = [];
+        let uploadedImageSrc = null;
+
+        // Data awal ulasan bawaan
+        const defaultReviews = [
+            {
+                name: "Budi Santoso",
+                location: "Jakarta",
+                rating: 4,
+                comment: "Rasa bumbu kuningnya gurih banget. Hasil gorengannya renyah & crispy!",
+                date: "10 Oktober 2026",
+                image: null
+            },
+            {
+                name: "Aulia Putri",
+                location: "Depok",
+                rating: 5,
+                comment: "Kemasannya rapi vacuum kedap udara. Sama sekali gak bau tanah. Mantap buat stok kosan!",
+                date: "11 Oktober 2026",
+                image: null
+            }
+        ];
+
+        // MENGAMBIL ULASAN DARI LOCALSTORAGE
+        function getSavedReviews() {
+            const saved = localStorage.getItem('marile_reviews');
+            if (saved) {
+                return JSON.parse(saved);
+            } else {
+                localStorage.setItem('marile_reviews', JSON.stringify(defaultReviews));
+                return defaultReviews;
+            }
+        }
+
+        // TAMPILKAN DAFTAR ULASAN DARI LOCALSTORAGE
+        function renderReviews() {
+            const reviews = getSavedReviews();
+            const listContainer = document.getElementById('review-list');
+            const countBadge = document.getElementById('review-count-badge');
+
+            countBadge.innerText = `${reviews.length} Ulasan`;
+
+            listContainer.innerHTML = reviews.map(rev => {
+                let starsHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rev.rating) starsHTML += '<i class="fa-solid fa-star"></i>';
+                    else starsHTML += '<i class="fa-regular fa-star"></i>';
+                }
+
+                let imgHTML = '';
+                if (rev.image) {
+                    imgHTML = `
+                        <div class="h-36 rounded-xl overflow-hidden bg-navy-950 border border-navy-800 mt-2">
+                            <img src="${rev.image}" alt="Foto Ulasan ${rev.name}" class="w-full h-full object-cover">
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="bg-navy-900 border border-navy-800 p-5 rounded-2xl space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-white text-sm">${rev.name} - ${rev.location}</span>
+                            <span class="text-amber-400">${starsHTML}</span>
+                        </div>
+                        <p class="text-xs text-navy-200 leading-relaxed italic">"${rev.comment}"</p>
+                        ${imgHTML}
+                        <span class="block text-[10px] text-navy-400">Diulas pada ${rev.date}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // PREVIEW FOTO UPLOAD ULASAN
+        function previewReviewImage(event) {
+            const file = event.target.files[0];
+            const container = document.getElementById('img-preview-container');
+            const preview = document.getElementById('img-preview');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    uploadedImageSrc = e.target.result;
+                    container.classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                uploadedImageSrc = null;
+                container.classList.add('hidden');
+            }
+        }
+
+        // SUBMIT & SIMPAN ULASAN KE LOCALSTORAGE
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('rev-name').value;
+            const location = document.getElementById('rev-location').value || 'Pelanggan';
+            const rating = parseInt(document.getElementById('rev-rating').value);
+            const comment = document.getElementById('rev-comment').value;
+
+            const today = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const dateStr = today.toLocaleDateString('id-ID', options);
+
+            const newReview = {
+                name: name,
+                location: location,
+                rating: rating,
+                comment: comment,
+                date: dateStr,
+                image: uploadedImageSrc
+            };
+
+            const currentReviews = getSavedReviews();
+            currentReviews.unshift(newReview); // Tambahkan di paling atas
+            localStorage.setItem('marile_reviews', JSON.stringify(currentReviews));
+
+            renderReviews(); // Render ulang tampilan ulasan
+
+            document.getElementById('reviewForm').reset();
+            document.getElementById('img-preview-container').classList.add('hidden');
+            uploadedImageSrc = null;
+
+            if (confirm("Terima kasih! Ulasan Anda berhasil disimpan. Kirimkan juga masukan ini langsung ke WhatsApp pengelola MARILE?")) {
+                let waMsg = `Halo MARILE, berikut masukan/ulasan dari saya:\n\n- Nama: *${name}* (${location})\n- Rating: ${rating}/5 Star\n- Pesan: _"${comment}"_`;
+                window.open(`https://wa.me/6289694499204?text=${encodeURIComponent(waMsg)}`, '_blank');
+            }
+        }
+
+        // FUNGSI KERANJANG
+        function toggleCartDrawer() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function addToCart(name, price, image) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name, price, image, qty: 1 });
+            }
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge');
+            const totalEl = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('scale-0');
+            } else {
+                badge.classList.add('scale-0');
+            }
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-navy-400 py-12">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-navy-300"></i>
+                        <p class="text-sm font-medium">Keranjang belanja Anda masih kosong</p>
+                    </div>
+                `;
+                checkoutBtn.disabled = true;
+                checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                container.innerHTML = cart.map((item, index) => `
+                    <div class="flex items-center gap-4 border-b border-navy-100 pb-4">
+                        <img src="${item.image}" alt="${item.name}" class="w-14 h-14 object-cover rounded-xl border border-navy-200 shrink-0">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start">
+                                <h4 class="font-bold text-sm text-navy-950">${item.name}</h4>
+                                <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 text-sm p-1 transition cursor-pointer" title="Hapus item">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                            <p class="text-xs text-navy-600 font-semibold mt-0.5">Rp ${item.price.toLocaleString('id-ID')}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="changeQty(${index}, -1)" class="w-6 h-6 bg-navy-100 hover:bg-navy-200 rounded text-xs font-bold cursor-pointer transition">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${index}, 1)" class="w-6 h-6 bg-navy-100 hover:bg-navy-200 rounded text-xs font-bold cursor-pointer transition">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                checkoutBtn.disabled = false;
+                checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+
+            totalEl.innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+        }
+
+        // FUNGSI MODAL PESANAN
+        function openOrderModal() {
+            if (cart.length === 0) return;
+            let subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            document.getElementById('modal-total-price').innerText = `Rp${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('cart-drawer').classList.add('hidden');
+            document.getElementById('orderModal').classList.remove('hidden');
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').classList.add('hidden');
+        }
+
+        // SUBMIT PESANAN TERAKHIR KE WHATSAPP
+        function submitFinalOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) return;
+
+            const fullname = document.getElementById('order-fullname').value;
+            const address = document.getElementById('order-address').value;
+            const payment = document.getElementById('order-payment').value;
+            const notes = document.getElementById('order-notes').value || '-';
+
+            let subtotal = 0;
+            let itemsListMsg = '';
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                itemsListMsg += `${index + 1}. *${item.name}* (${item.qty}x) = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
+            });
+
+            let waMessage = `Halo MARILE, saya ingin konfirmasi pemesanan:\n\n` +
+                            `📦 *RINCIAN PESANAN:*\n${itemsListMsg}\n` +
+                            `💰 *TOTAL PESANAN: Rp ${subtotal.toLocaleString('id-ID')}*\n\n` +
+                            `👤 *DATA PENGIRIMAN:*\n` +
+                            `- *Nama Lengkap:* ${fullname}\n` +
+                            `- *Alamat Pengiriman:* ${address}\n` +
+                            `- *Metode Pembayaran:* ${payment}\n` +
+                            `- *Catatan:* ${notes}\n\n` +
+                            `Mohon diproses untuk pengirimannya. Terima kasih!`;
+
+            window.open(`https://wa.me/6289694499204?text=${encodeURIComponent(waMessage)}`, '_blank');
+            closeOrderModal();
+        }
+
+        // INITIAL LOAD: RENDER ULASAN SAAT HALAMAN DIBUKA
+        window.addEventListener('DOMContentLoaded', () => {
+            renderReviews();
+        });
+
+        // Flash Sale Countdown Timer
+        let totalSeconds = 4 * 3600 + 25 * 60 + 40;
+        setInterval(() => {
+            if (totalSeconds <= 0) return;
+            totalSeconds--;
+            let hrs = Math.floor(totalSeconds / 3600);
+            let mins = Math.floor((totalSeconds % 3600) / 60);
+            let secs = totalSeconds % 60;
+
+            document.getElementById('cd-hours').innerText = String(hrs).padStart(2, '0');
+            document.getElementById('cd-minutes').innerText = String(mins).padStart(2, '0');
+            document.getElementById('cd-seconds').innerText = String(secs).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
